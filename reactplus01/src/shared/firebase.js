@@ -1,6 +1,7 @@
 import firebase from "firebase/app";
 import "firebase/auth";
 
+
 const firebaseConfig ={
     apiKey: "AIzaSyAwCV3a4X8iC_MVV1iWyq7LA2EfUNMCSNk",
     authDomain: "react-homework01.firebaseapp.com",
@@ -12,5 +13,7 @@ const firebaseConfig ={
 };
 
 firebase.initializeApp(firebaseConfig);
+
+const apiKey = firebaseConfig.apiKey;
 const auth = firebase.auth();
-export {auth};
+export {auth, apiKey};
