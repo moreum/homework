@@ -3,6 +3,9 @@ import './App.css';
 
 
 import {BrowserRouter, Route} from "react-router-dom"
+import { ConnectedRouter } from 'connected-react-router';
+import {history} from "../redux/configureStore";
+
 import PostList from '../pages/PostList';
 import Login from "../pages/Login"
 
@@ -17,23 +20,17 @@ function App() {
     <React.Fragment>
       <Grid>
         <Header></Header>
-        <BrowserRouter>
+        <ConnectedRouter history = {history}>
           <Route path="/" exact component={PostList}/>
           <Route path="/login" exact component={Login}/>
           <Route path="/signup" exact component={Signup}/>
-        </BrowserRouter>
+        </ConnectedRouter>
       </Grid>
     </React.Fragment>
   );
 
-  
-  const homework01 = firestore.collection("image-community");
-  homework01.doc("image01").get().then((doc)=> {
-    console.log(doc);
-    console.log(doc.data());
-  }
 
-}
+  }
 
 
 export default App;
