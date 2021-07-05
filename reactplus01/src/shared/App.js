@@ -13,7 +13,6 @@ import Header from '../components/Header';
 import { Grid } from '../elements';
 import Signup from '../pages/Signup';
 
-import { firestore } from '../firebase';
 
 function App() {
   return (
