@@ -39,7 +39,6 @@ const AspectOutter = styled.div`
     min-width: 250px;
 `;
 
-
 const AspectInner = styled.div`
     position: relative;
     padding-top: 75%;
@@ -48,18 +47,15 @@ const AspectInner = styled.div`
     background-size: cover;
 `;
 
-
 const ImageCircle = styled.div`
     --size: ${(props) => props.size}px;
     width: var(--size);
-    height:  var(--size);
+    height: var(--size);
     border-radius: var(--size);
 
     background-image: url("${(props) => props.src}");
     background-size: cover;
     margin: 4px;
 `;
-
-
 
 export default Image;

@@ -14,19 +14,18 @@ const Text = (props) => {
 }
 
 Text.defaultProps = {
+    children: null,
     bold: false,
-    color: '#222831',
-    size: '14px',
-    margin: false,
-}
-
-const P = styled.p`
+    color: "#222831",
+    size: "14px",
+  };
+  
+  const P = styled.p`
     color: ${(props) => props.color};
     font-size: ${(props) => props.size};
-    font-wight: ${(props)=> (props.bold? "600": "400")};
-    ${(props) => (props.margin? `margin: ${props.margin};` : ''  )}
-`;
-
+    font-weight: ${(props) => (props.bold? "600" : "400")};
+  `;
+  
 
 
 export default Text;

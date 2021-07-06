@@ -27,6 +27,15 @@ Grid.defaultProps = {
   bg: false,
 };
 
+Grid.defaultProps = {
+  chidren: null,
+  is_flex: false,
+  width: "100%",
+  padding: false,
+  margin: false,
+  bg: false,
+};
+
 const GridBox = styled.div`
   width: ${(props) => props.width};
   height: 100%;
