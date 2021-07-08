@@ -1,5 +1,6 @@
 import firebase from "firebase/app";
 import "firebase/auth";
+import "firebase/firestore"
 
 
 const firebaseConfig ={
@@ -9,11 +10,12 @@ const firebaseConfig ={
     storageBucket: "react-homework01.appspot.com",
     messagingSenderId: "118577565537",
     appId: "1:118577565537:web:99ed8f48e4de9c29eb3f20",
-    measurementId: "G-L2S19D6ZJ4",
+    measurementId: "G-L2S19D6ZJ4"
 };
 
 firebase.initializeApp(firebaseConfig);
 
 const apiKey = firebaseConfig.apiKey;
 const auth = firebase.auth();
-export {auth, apiKey};
+const firestore = firebase.firestore(); 
+export {auth, apiKey, firestore};
