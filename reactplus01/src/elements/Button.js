@@ -36,7 +36,6 @@ const ElButton = styled.button`
     padding: 12px 0px;
     box-sizing: border-box;
     border: none;
-    boder-radius: 30px;
 `;
 
 const FloatButton = styled.div`
@@ -54,7 +53,7 @@ const FloatButton = styled.div`
     vertical-align: middle;
     border: none;
     border-radius: 50px;
-    boder-radius: 30px;
+    
 `;
 
 
