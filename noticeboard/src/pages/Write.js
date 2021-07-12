@@ -1,17 +1,41 @@
 import React from "react";
 import styled from "styled-components";
 
-const Write = () => {
+const Write = (props) => {
 
+    const title_ref = React.useRef(null);
+    const name_ref = React.useRef(null);
+    const content_ref = React.useRef(null);
+
+    const addpost = () => {
+
+        const post = {
+            id: 'post_1',
+            title: title_ref.current.value,
+            name: name_ref.current.value,
+            content: content_ref.current.value,
+        }   
+
+        console.log(post)
+
+    }
     
     return(
         <React.Fragment>
             <Center>
                 <h1>글쓰기 페이지</h1>
-                <InputBox placeholder= "제목" ></InputBox> 
-                <InputBox placeholder= "작성자" ></InputBox>
-                <TextBox placeholder= "내용"></TextBox>
-                <WriteButton>글쓰기</WriteButton>
+                <InputBox placeholder= "제목을 입력하세요" ref={title_ref}>
+
+                </InputBox> 
+                <InputBox placeholder= "작성자를 입력하세요" ref={name_ref}>
+    
+                </InputBox>
+                <TextBox placeholder= "내용을 입력하세요" ref={content_ref}>
+
+                </TextBox>
+                <WriteButton 
+                    onClick={addpost}
+                >글쓰기</WriteButton>
             </Center>
         </React.Fragment>
     )

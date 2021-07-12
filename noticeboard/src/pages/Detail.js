@@ -5,11 +5,10 @@ const Detail = (props) => {
 
     return(
         <React.Fragment>
-     
             <Center>
                 <h1>상세페이지</h1>
                 <WriteView></WriteView>
-                <BackButton>돌아가기</BackButton>
+                <BackButton onClick={()=>{props.history.push("/")}}>돌아가기</BackButton>
             </Center>
 
         </React.Fragment>
@@ -20,7 +19,6 @@ const Detail = (props) => {
 const Center = styled.div`
     width: 100%;
     text-align: center;
-    
 `;
 
 const WriteView = styled.div`
