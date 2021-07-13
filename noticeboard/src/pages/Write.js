@@ -1,40 +1,32 @@
-import React from "react";
+import React, {useEffect} from "react";
 import styled from "styled-components";
+import { useDispatch } from "react-redux";
+import { addPost, addPostFB } from "../redux/modules/board";
 
-const Write = (props) => {
+const Write = ({history}) => {
+    const dispatch = useDispatch();
 
-    const title_ref = React.useRef(null);
-    const name_ref = React.useRef(null);
-    const content_ref = React.useRef(null);
-
-    const addpost = () => {
-
-        const post = {
-            id: 'post_1',
-            title: title_ref.current.value,
-            name: name_ref.current.value,
-            content: content_ref.current.value,
-        }   
-
-        console.log(post)
-
-    }
+    const title_ref = React.useRef();
+    const name_ref = React.useRef();
+    const content_ref = React.useRef();
     
     return(
         <React.Fragment>
             <Center>
                 <h1>글쓰기 페이지</h1>
-                <InputBox placeholder= "제목을 입력하세요" ref={title_ref}>
-
-                </InputBox> 
-                <InputBox placeholder= "작성자를 입력하세요" ref={name_ref}>
-    
-                </InputBox>
-                <TextBox placeholder= "내용을 입력하세요" ref={content_ref}>
-
-                </TextBox>
+                <InputBox placeholder= "  제목을 입력하세요" ref={title_ref}></InputBox> 
+                <InputBox placeholder= "  작성자를 입력하세요" ref={name_ref}></InputBox>
+                <TextBox placeholder= "  내용을 입력하세요" ref={content_ref}></TextBox>
                 <WriteButton 
-                    onClick={addpost}
+                    onClick={()=> {
+                        let input_text={
+                            title: title_ref.current.value,
+                            name: name_ref.current.value,
+                            content: content_ref.current.value,
+                        };
+                        dispatch(addPostFB(input_text));
+                        history.push("/");
+                    }}
                 >글쓰기</WriteButton>
             </Center>
         </React.Fragment>
@@ -45,7 +37,6 @@ const Center = styled.div`
     width: 100%;
     text-align: center;
 `;
-
 
 const InputBox = styled.input`
     width: 50%;

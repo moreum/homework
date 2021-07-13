@@ -15,15 +15,15 @@ const initialState = {
 
         {
           id: "list_0",
-          name: "이름이름11111111",
-          title: "제목제목제목11111111111",
-          content: "내용내용내용1111111111",
+          name: "이름이름",
+          title: "제목제목제목",
+          content: "내용내용내용",
         },
         {
             id: "list_1",
-            name: "dlfmadlfma2222222222",
-            title: "wpahrwpahr2222222222",
-            content: "sodydsodyd22222222",
+            name: "dlfmadlfma",
+            title: "wpahrwpah",
+            content: "sodydsodyd",
         },
     ],
 }
@@ -47,8 +47,13 @@ export const loadPostFB = () => {
     }
 }
 export const addPostFB = (board) => {
-
-
+    return function (dispatch) {
+        let new_board;
+        notice_db.add(board).then((doc)=>{
+            new_board = {...board, id: doc.id};
+        })
+        .then(()=>dispatch(addPost(new_board)));
+    }
 }
 
 // Reducer

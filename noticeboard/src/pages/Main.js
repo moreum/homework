@@ -3,30 +3,36 @@ import styled from "styled-components";
 import Header from "../component/Header"
 import { withRouter } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux" 
+import { loadPost, loadPostFB } from "../redux/modules/board";
 
 const Main = ({history}) => {
-    // const dispatch = useDispatch(); 
+    const dispatch = useDispatch(); 
     const post_list = useSelector((state)=> state.board.list);
+
+    useEffect(() => {
+        dispatch(loadPostFB());
+      }, [dispatch]);
     return(
         <React.Fragment>
             <Header/>
             <Table>
                 <thead>
-                    <tr>
-                        <Th>글번호</Th>
-                        <Th>작성자</Th>
-                        <Th>제목</Th>
-                    </tr>
+                    <TR >
+                        <th>글번호</th>
+                        <th>작성자</th>
+                        <th>제목</th>
+                    </TR>
                     {post_list.map((p,index)=>{
                     return(
-                        <tr key={index}
+                        <TR
+                            key={index}
                             onClick={()=> {
-                            history.push("/detail" + index);
+                            history.push("/detail/" + index);
                         }}>
-                        <Th>{index+1}</Th>
-                        <Th>{p.name}</Th>
-                        <Th>{p.title}</Th>
-                        </tr>
+                        <th>{index+1}</th>
+                        <th>{p.name}</th>
+                        <th>{p.title}</th>
+                        </TR>
                     );
                 })}                        
                 </thead>
@@ -38,15 +44,21 @@ const Main = ({history}) => {
 
 const Table = styled.table`
     width: 60%;
-    border-top: 2px solid rgba(29, 161, 242, 1);
-    // border-bottom: 2px solid rgba(29, 161, 242, 1);
     border-collapse: collapse;
     margin: 30px auto;
 `;
 
-const Th = styled.th`
-    border-bottom: 2px solid rgba(29, 161, 242, 1);
+const TR = styled.tr`
+& > th {
+    // border-top: 3px solid #5F8CB2;
+    border-bottom: 1px solid #5F8CB2;
+    width: 100px;
     padding: 10px;
+    cursor: pointer;
+  }
+  :hover {
+    background-color: #F0F6FC;
+  }
 `;
 
 

@@ -7,7 +7,6 @@ import Main from "./pages/Main"
 import Write from './pages/Write';
 import Detail from './pages/Detail';
 
-
 import { Route, BrowserRouter } from "react-router-dom";
 
 
@@ -20,6 +19,7 @@ function App() {
           <Route path = "/" exact component = {Main}/>
           <Route path = "/write" exact component = {Write}/>
           <Route path = "/detail" exact component = {Detail}/>
+          <Route path ="/detail/:index" exact component={Detail}/>
       </BrowserRouter>
     </React.Fragment>
   );
