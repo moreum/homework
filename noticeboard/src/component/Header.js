@@ -6,7 +6,7 @@ const Header = ({history}) => {
     return(
         <React.Fragment>
             <Top>
-            <Title>게시판 만들기</Title>
+            <Title onClick={()=>{history.push("/");}}>게시판 만들기</Title>
                 <SmallTitle>아주 간단한 게시판을 만들어봅시다</SmallTitle>
                 <BackButton onClick={()=>{history.push('/write');}}>글쓰기</BackButton>
             </Top>

@@ -6,13 +6,17 @@ import { useSelector, useDispatch } from "react-redux"
 import { loadPost, loadPostFB } from "../redux/modules/board";
 
 const Main = ({history}) => {
+    // dispatch 액션생성함수를 불러온다
     const dispatch = useDispatch(); 
     const post_list = useSelector((state)=> state.board.list);
+
 
     useEffect(() => {
         dispatch(loadPostFB());
       }, [dispatch]);
-    return(
+    
+    console.log(post_list);
+      return(
         <React.Fragment>
             <Header/>
             <Table>
@@ -29,7 +33,7 @@ const Main = ({history}) => {
                             onClick={()=> {
                             history.push("/detail/" + index);
                         }}>
-                        <th>{index+1}</th>
+                        <th>{post_list.length-index}</th>
                         <th>{p.name}</th>
                         <th>{p.title}</th>
                         </TR>
